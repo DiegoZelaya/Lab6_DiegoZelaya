@@ -62,11 +62,11 @@ public class Main extends javax.swing.JFrame {
         genero_modificar = new javax.swing.JComboBox<>();
         modificar = new javax.swing.JButton();
         Listar = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lista_listar = new javax.swing.JTextArea();
         jLabel16 = new javax.swing.JLabel();
         claudiList_listar = new javax.swing.JTextField();
         listar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lista_listar = new javax.swing.JTextPane();
         Eliminar = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -282,23 +282,22 @@ public class Main extends javax.swing.JFrame {
 
         Main.addTab("Modificar", Modificar);
 
-        lista_listar.setColumns(20);
-        lista_listar.setRows(5);
-        jScrollPane1.setViewportView(lista_listar);
-
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("ClaudiList");
 
         listar.setText("Listar");
+        listar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listarMouseClicked(evt);
+            }
+        });
+
+        jScrollPane2.setViewportView(lista_listar);
 
         javax.swing.GroupLayout ListarLayout = new javax.swing.GroupLayout(Listar);
         Listar.setLayout(ListarLayout);
         ListarLayout.setHorizontalGroup(
             ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ListarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
             .addGroup(ListarLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel16)
@@ -307,13 +306,17 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(listar)
                 .addContainerGap(166, Short.MAX_VALUE))
+            .addGroup(ListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         ListarLayout.setVerticalGroup(
             ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ListarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
                 .addGroup(ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(listar)
                     .addComponent(claudiList_listar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -419,14 +422,29 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_eliminarMouseClicked
 
+    private void listarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listarMouseClicked
+
+    private void listar() throws IOException {
+        String nombre=claudiList_listar.getText();
+        claudiList list=new claudiList("./" +nombre+ ".txt");     
+        list.cargarArchivo();
+        //System.out.println(ap);
+        for (Programa t : list.getProgramas()) {
+            System.out.println(list.getProgramas().indexOf(t)+"- "+t);
+        }
+    }
+    
     private void eliminar() throws IOException {
         String nombre=claudiList_eliminar.getText();
         claudiList list=new claudiList("./" +nombre+ ".txt");
         list.cargarArchivo();
-        list.getProgramas().remove((Integer)posicion_eliminar.getValue());
+        int eliminar = (Integer) posicion_eliminar.getValue();
+        list.getProgramas().remove(eliminar);
         list.escribirArchivo();
         claudiList_eliminar.setText("");
-        posicion_modificar.setValue(0);
+        posicion_eliminar.setValue(0);
         JOptionPane.showMessageDialog(this, "Programa Eliminado!");
     }
     
@@ -528,10 +546,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner lanzamiento_agregar;
     private javax.swing.JSpinner lanzamiento_modificar;
-    private javax.swing.JTextArea lista_listar;
+    private javax.swing.JTextPane lista_listar;
     private javax.swing.JButton listar;
     private javax.swing.JButton modificar;
     private javax.swing.JTextField nombre_agregar;
