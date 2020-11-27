@@ -1,12 +1,11 @@
 
 package lab6_diegozelaya;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class claudiList {
     private ArrayList<Programa> programas = new ArrayList();
@@ -68,12 +67,11 @@ public class claudiList {
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
-                sc.useDelimiter(";");
+                sc.useDelimiter("/");
                 while (sc.hasNext()) {
                     programas.add(new Programa(sc.next(),sc.nextInt(),sc.nextInt(),sc.next(),sc.next()));
                 }
-            } catch (Exception ex) {
-            }
+            } catch (Exception ex) {}
             sc.close();
         }//FIN IF
     }

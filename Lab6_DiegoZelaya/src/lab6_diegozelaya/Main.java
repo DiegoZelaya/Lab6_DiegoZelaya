@@ -43,9 +43,24 @@ public class Main extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         genero_agregar = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        claudiList_nombre = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        claudiList_agregar = new javax.swing.JTextField();
+        agregar = new javax.swing.JButton();
         Modificar = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        claudiList_modificar = new javax.swing.JTextField();
+        posicion_modificar = new javax.swing.JSpinner();
+        nombre_modificar = new javax.swing.JTextField();
+        puntuacion_modificar = new javax.swing.JSpinner();
+        lanzamiento_modificar = new javax.swing.JSpinner();
+        tipo_modificar = new javax.swing.JComboBox<>();
+        genero_modificar = new javax.swing.JComboBox<>();
+        modificar = new javax.swing.JButton();
         Listar = new javax.swing.JPanel();
         Eliminar = new javax.swing.JPanel();
 
@@ -77,10 +92,10 @@ public class Main extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("ClaudiList");
 
-        jButton1.setText("Agregar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        agregar.setText("Agregar");
+        agregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                agregarMouseClicked(evt);
             }
         });
 
@@ -101,7 +116,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(claudiList_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(claudiList_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                             .addComponent(nombre_agregar)
                             .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(genero_agregar, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -111,7 +126,7 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(lanzamiento_agregar, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(AgregarLayout.createSequentialGroup()
                         .addGap(191, 191, 191)
-                        .addComponent(jButton1)))
+                        .addComponent(agregar)))
                 .addContainerGap(329, Short.MAX_VALUE))
         );
         AgregarLayout.setVerticalGroup(
@@ -140,23 +155,119 @@ public class Main extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(claudiList_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(claudiList_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(agregar)
                 .addGap(39, 39, 39))
         );
 
         Main.addTab("Agregar", Agregar);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Nombre");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("ClaudiList");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setText("Posicion");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Puntuacion");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel11.setText("Año Lanzamiento");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setText("Tipo");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setText("Genero");
+
+        posicion_modificar.setModel(new javax.swing.SpinnerNumberModel());
+
+        puntuacion_modificar.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+
+        lanzamiento_modificar.setModel(new javax.swing.SpinnerNumberModel(2020, 1888, 2020, 1));
+
+        tipo_modificar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Anime", "Serie", "Documental", "Pelicula" }));
+
+        genero_modificar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comedia", "Romance", "Terror", "SyFy", "Suspenso", "Accion" }));
+
+        modificar.setText("Modificar");
+        modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout ModificarLayout = new javax.swing.GroupLayout(Modificar);
         Modificar.setLayout(ModificarLayout);
         ModificarLayout.setHorizontalGroup(
             ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 637, Short.MAX_VALUE)
+            .addGroup(ModificarLayout.createSequentialGroup()
+                .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModificarLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(claudiList_modificar)
+                                .addComponent(nombre_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                                .addComponent(posicion_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(puntuacion_modificar, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lanzamiento_modificar, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(genero_modificar, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tipo_modificar, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(ModificarLayout.createSequentialGroup()
+                        .addGap(198, 198, 198)
+                        .addComponent(modificar)))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
         ModificarLayout.setVerticalGroup(
             ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGroup(ModificarLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(claudiList_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(posicion_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(nombre_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(puntuacion_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(lanzamiento_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tipo_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(genero_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(modificar)
+                .addGap(38, 38, 38))
         );
 
         Main.addTab("Modificar", Modificar);
@@ -201,17 +312,38 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarMouseClicked
         try {
             agregar();
         }
         catch(IOException e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_agregarMouseClicked
 
-    public void agregar() throws IOException {
-        String nombre=claudiList_nombre.getText();
+    private void modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarMouseClicked
+        try {
+            modificar();
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_modificarMouseClicked
+
+    private void modificar() throws IOException {
+        String nombre=claudiList_modificar.getText();
+        claudiList list=new claudiList("./" +nombre+ ".txt");
+        list.cargarArchivo();
+        list.getProgramas().get((Integer)posicion_modificar.getValue()).setNombre(nombre_modificar.getText());
+        list.getProgramas().get((Integer)posicion_modificar.getValue()).setPuntuacion((Integer)puntuacion_modificar.getValue());
+        list.getProgramas().get((Integer)posicion_modificar.getValue()).setLanzamiento((Integer)lanzamiento_modificar.getValue());
+        list.getProgramas().get((Integer)posicion_modificar.getValue()).setTipo((String)tipo_modificar.getSelectedItem());
+        list.getProgramas().get((Integer)posicion_modificar.getValue()).setGenero((String)genero_modificar.getSelectedItem());
+        list.escribirArchivo();
+    }
+    
+    private void agregar() throws IOException {
+        String nombre=claudiList_agregar.getText();
         claudiList list=new claudiList("./" +nombre+ ".txt");        
         list.cargarArchivo();
         Programa programa= new Programa(nombre_agregar.getText(),(Integer)puntuacion_agregar.getValue(),(Integer)lanzamiento_agregar.getValue(),(String)tipo_agregar.getSelectedItem(),(String)genero_agregar.getSelectedItem());
@@ -222,7 +354,7 @@ public class Main extends javax.swing.JFrame {
         lanzamiento_agregar.setValue(2020);
         tipo_agregar.setSelectedIndex(0);
         genero_agregar.setSelectedIndex(0);
-        claudiList_nombre.setText("");
+        claudiList_agregar.setText("");
         JOptionPane.showMessageDialog(this, "Programa Agregado!");
     }
     /**
@@ -266,18 +398,33 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel Listar;
     private javax.swing.JTabbedPane Main;
     private javax.swing.JPanel Modificar;
-    private javax.swing.JTextField claudiList_nombre;
+    private javax.swing.JButton agregar;
+    private javax.swing.JTextField claudiList_agregar;
+    private javax.swing.JTextField claudiList_modificar;
     private javax.swing.JComboBox<String> genero_agregar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> genero_modificar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JSpinner lanzamiento_agregar;
+    private javax.swing.JSpinner lanzamiento_modificar;
+    private javax.swing.JButton modificar;
     private javax.swing.JTextField nombre_agregar;
+    private javax.swing.JTextField nombre_modificar;
+    private javax.swing.JSpinner posicion_modificar;
     private javax.swing.JSpinner puntuacion_agregar;
+    private javax.swing.JSpinner puntuacion_modificar;
     private javax.swing.JComboBox<String> tipo_agregar;
+    private javax.swing.JComboBox<String> tipo_modificar;
     // End of variables declaration//GEN-END:variables
 }
