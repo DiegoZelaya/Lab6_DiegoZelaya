@@ -6,14 +6,14 @@ import java.util.Date;
 public class Programa {
     private String nombre;
     private int puntuacion;
-    private Date lanzamiento;
+    private int lanzamiento;
     private String tipo;
     private String genero;
 
     public Programa() {
     }
 
-    public Programa(String nombre, int puntuacion, Date lanzamiento, String tipo, String genero) {
+    public Programa(String nombre, int puntuacion, int lanzamiento, String tipo, String genero) {
         this.nombre = nombre;
         this.puntuacion = puntuacion;
         this.lanzamiento = lanzamiento;
@@ -37,11 +37,11 @@ public class Programa {
         this.puntuacion = puntuacion;
     }
 
-    public Date getLanzamiento() {
+    public int getLanzamiento() {
         return lanzamiento;
     }
 
-    public void setLanzamiento(Date lanzamiento) {
+    public void setLanzamiento(int lanzamiento) {
         this.lanzamiento = lanzamiento;
     }
 
