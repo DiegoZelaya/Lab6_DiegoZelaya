@@ -62,7 +62,17 @@ public class Main extends javax.swing.JFrame {
         genero_modificar = new javax.swing.JComboBox<>();
         modificar = new javax.swing.JButton();
         Listar = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lista_listar = new javax.swing.JTextArea();
+        jLabel16 = new javax.swing.JLabel();
+        claudiList_listar = new javax.swing.JTextField();
+        listar = new javax.swing.JButton();
         Eliminar = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        claudiList_eliminar = new javax.swing.JTextField();
+        posicion_eliminar = new javax.swing.JSpinner();
+        eliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -272,28 +282,98 @@ public class Main extends javax.swing.JFrame {
 
         Main.addTab("Modificar", Modificar);
 
+        lista_listar.setColumns(20);
+        lista_listar.setRows(5);
+        jScrollPane1.setViewportView(lista_listar);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setText("ClaudiList");
+
+        listar.setText("Listar");
+
         javax.swing.GroupLayout ListarLayout = new javax.swing.GroupLayout(Listar);
         Listar.setLayout(ListarLayout);
         ListarLayout.setHorizontalGroup(
             ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 637, Short.MAX_VALUE)
+            .addGroup(ListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(ListarLayout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addComponent(claudiList_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(listar)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         ListarLayout.setVerticalGroup(
             ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGroup(ListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addGroup(ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(listar)
+                    .addComponent(claudiList_listar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         Main.addTab("Listar", Listar);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel14.setText("ClaudiList");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setText("Posicion");
+
+        posicion_eliminar.setModel(new javax.swing.SpinnerNumberModel());
+
+        eliminar.setText("Eliminar");
+        eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eliminarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout EliminarLayout = new javax.swing.GroupLayout(Eliminar);
         Eliminar.setLayout(EliminarLayout);
         EliminarLayout.setHorizontalGroup(
             EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 637, Short.MAX_VALUE)
+            .addGroup(EliminarLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addGroup(EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel14))
+                .addGap(18, 18, 18)
+                .addGroup(EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(EliminarLayout.createSequentialGroup()
+                        .addComponent(claudiList_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                        .addGap(325, 325, 325))
+                    .addGroup(EliminarLayout.createSequentialGroup()
+                        .addComponent(posicion_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(EliminarLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(eliminar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         EliminarLayout.setVerticalGroup(
             EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGroup(EliminarLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(claudiList_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addGap(38, 38, 38)
+                .addGroup(EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(posicion_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(59, 59, 59)
+                .addComponent(eliminar)
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         Main.addTab("Eliminar", Eliminar);
@@ -330,6 +410,26 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_modificarMouseClicked
 
+    private void eliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarMouseClicked
+        try {
+            eliminar();
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_eliminarMouseClicked
+
+    private void eliminar() throws IOException {
+        String nombre=claudiList_eliminar.getText();
+        claudiList list=new claudiList("./" +nombre+ ".txt");
+        list.cargarArchivo();
+        list.getProgramas().remove((Integer)posicion_eliminar.getValue());
+        list.escribirArchivo();
+        claudiList_eliminar.setText("");
+        posicion_modificar.setValue(0);
+        JOptionPane.showMessageDialog(this, "Programa Eliminado!");
+    }
+    
     private void modificar() throws IOException {
         String nombre=claudiList_modificar.getText();
         claudiList list=new claudiList("./" +nombre+ ".txt");
@@ -340,6 +440,13 @@ public class Main extends javax.swing.JFrame {
         list.getProgramas().get((Integer)posicion_modificar.getValue()).setTipo((String)tipo_modificar.getSelectedItem());
         list.getProgramas().get((Integer)posicion_modificar.getValue()).setGenero((String)genero_modificar.getSelectedItem());
         list.escribirArchivo();
+        nombre_modificar.setText("");
+        puntuacion_modificar.setValue(1);
+        lanzamiento_modificar.setValue(2020);
+        tipo_modificar.setSelectedIndex(0);
+        genero_modificar.setSelectedIndex(0);
+        posicion_modificar.setValue(0);
+        JOptionPane.showMessageDialog(this, "Programa Modificado!");
     }
     
     private void agregar() throws IOException {
@@ -354,7 +461,6 @@ public class Main extends javax.swing.JFrame {
         lanzamiento_agregar.setValue(2020);
         tipo_agregar.setSelectedIndex(0);
         genero_agregar.setSelectedIndex(0);
-        claudiList_agregar.setText("");
         JOptionPane.showMessageDialog(this, "Programa Agregado!");
     }
     /**
@@ -400,7 +506,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel Modificar;
     private javax.swing.JButton agregar;
     private javax.swing.JTextField claudiList_agregar;
+    private javax.swing.JTextField claudiList_eliminar;
+    private javax.swing.JTextField claudiList_listar;
     private javax.swing.JTextField claudiList_modificar;
+    private javax.swing.JButton eliminar;
     private javax.swing.JComboBox<String> genero_agregar;
     private javax.swing.JComboBox<String> genero_modificar;
     private javax.swing.JLabel jLabel1;
@@ -408,6 +517,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -416,11 +528,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner lanzamiento_agregar;
     private javax.swing.JSpinner lanzamiento_modificar;
+    private javax.swing.JTextArea lista_listar;
+    private javax.swing.JButton listar;
     private javax.swing.JButton modificar;
     private javax.swing.JTextField nombre_agregar;
     private javax.swing.JTextField nombre_modificar;
+    private javax.swing.JSpinner posicion_eliminar;
     private javax.swing.JSpinner posicion_modificar;
     private javax.swing.JSpinner puntuacion_agregar;
     private javax.swing.JSpinner puntuacion_modificar;
