@@ -31,11 +31,6 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         Main = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        nombre_lista = new javax.swing.JTextField();
-        crear = new javax.swing.JButton();
         Agregar = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         nombre_agregar = new javax.swing.JTextField();
@@ -51,58 +46,10 @@ public class Main extends javax.swing.JFrame {
         claudiList_nombre = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         Modificar = new javax.swing.JPanel();
+        Listar = new javax.swing.JPanel();
         Eliminar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setText("CREAR CLAUDILIST");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Nombre");
-
-        crear.setText("Guardar");
-        crear.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                crearMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(crear))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(274, 274, 274)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(nombre_lista, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(148, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addGap(82, 82, 82)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nombre_lista, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                .addComponent(crear)
-                .addGap(63, 63, 63))
-        );
-
-        Main.addTab("claudiList", jPanel1);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Nombre");
@@ -131,6 +78,11 @@ public class Main extends javax.swing.JFrame {
         jLabel8.setText("ClaudiList");
 
         jButton1.setText("Agregar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout AgregarLayout = new javax.swing.GroupLayout(Agregar);
         Agregar.setLayout(AgregarLayout);
@@ -209,6 +161,19 @@ public class Main extends javax.swing.JFrame {
 
         Main.addTab("Modificar", Modificar);
 
+        javax.swing.GroupLayout ListarLayout = new javax.swing.GroupLayout(Listar);
+        Listar.setLayout(ListarLayout);
+        ListarLayout.setHorizontalGroup(
+            ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 637, Short.MAX_VALUE)
+        );
+        ListarLayout.setVerticalGroup(
+            ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 397, Short.MAX_VALUE)
+        );
+
+        Main.addTab("Listar", Listar);
+
         javax.swing.GroupLayout EliminarLayout = new javax.swing.GroupLayout(Eliminar);
         Eliminar.setLayout(EliminarLayout);
         EliminarLayout.setHorizontalGroup(
@@ -236,24 +201,29 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearMouseClicked
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         try {
-            crearLista();
+            agregar();
         }
         catch(IOException e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_crearMouseClicked
+    }//GEN-LAST:event_jButton1MouseClicked
 
-    private void crearLista() throws IOException {
-        String nombre=nombre_lista.getText();
-        claudiList ap=new claudiList("./" + nombre + ".txt");        
-        ap.cargarArchivo();
-        Programa p= new Programa("0",0,0,"0","0");
-        ap.getProgramas().add(p);        
-        ap.escribirArchivo();
-        nombre_lista.setText("");
-        JOptionPane.showMessageDialog(this, "ClaudiList Agregada!");
+    public void agregar() throws IOException {
+        String nombre=claudiList_nombre.getText();
+        claudiList list=new claudiList("./" +nombre+ ".txt");        
+        list.cargarArchivo();
+        Programa programa= new Programa(nombre_agregar.getText(),(Integer)puntuacion_agregar.getValue(),(Integer)lanzamiento_agregar.getValue(),(String)tipo_agregar.getSelectedItem(),(String)genero_agregar.getSelectedItem());
+        list.getProgramas().add(programa);        
+        list.escribirArchivo();
+        nombre_agregar.setText("");
+        puntuacion_agregar.setValue(1);
+        lanzamiento_agregar.setValue(2020);
+        tipo_agregar.setSelectedIndex(0);
+        genero_agregar.setSelectedIndex(0);
+        claudiList_nombre.setText("");
+        JOptionPane.showMessageDialog(this, "Programa Agregado!");
     }
     /**
      * @param args the command line arguments
@@ -293,24 +263,20 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Agregar;
     private javax.swing.JPanel Eliminar;
+    private javax.swing.JPanel Listar;
     private javax.swing.JTabbedPane Main;
     private javax.swing.JPanel Modificar;
     private javax.swing.JTextField claudiList_nombre;
-    private javax.swing.JButton crear;
     private javax.swing.JComboBox<String> genero_agregar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JSpinner lanzamiento_agregar;
     private javax.swing.JTextField nombre_agregar;
-    private javax.swing.JTextField nombre_lista;
     private javax.swing.JSpinner puntuacion_agregar;
     private javax.swing.JComboBox<String> tipo_agregar;
     // End of variables declaration//GEN-END:variables
