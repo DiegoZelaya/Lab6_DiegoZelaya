@@ -194,7 +194,7 @@ public class Main extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Genero");
 
-        posicion_modificar.setModel(new javax.swing.SpinnerNumberModel());
+        posicion_modificar.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         puntuacion_modificar.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
 
@@ -329,7 +329,7 @@ public class Main extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Posicion");
 
-        posicion_eliminar.setModel(new javax.swing.SpinnerNumberModel());
+        posicion_eliminar.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         eliminar.setText("Eliminar");
         eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
